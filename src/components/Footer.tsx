@@ -1,3 +1,4 @@
+
 import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -82,8 +83,8 @@ const Footer = () => {
               Hornsgatan 110<br />
               117 26, Stockholm Sweden
             </p>
-            <div className="flex space-x-4">
-              <span className="text-white/80 text-sm mb-2">Follow Mila:</span>
+            <div className="flex flex-col space-y-3">
+              <span className="text-white/80 text-sm">Follow Mila:</span>
               <a 
                 href="https://www.linkedin.com/in/milarecruiter/" 
                 target="_blank" 
