@@ -1,4 +1,3 @@
-
 import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -84,19 +83,13 @@ const Footer = () => {
               117 26, Stockholm Sweden
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/wrldstechnologies/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white transition-colors hover:bg-white/30"
-              >
-                <Linkedin size={20} />
-              </a>
+              <span className="text-white/80 text-sm mb-2">Follow Mila:</span>
               <a 
                 href="https://www.linkedin.com/in/milarecruiter/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white transition-colors hover:bg-blue-700"
+                title="Mila's LinkedIn Profile"
               >
                 <Linkedin size={20} />
               </a>
