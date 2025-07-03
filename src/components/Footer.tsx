@@ -92,6 +92,14 @@ const Footer = () => {
               >
                 <Linkedin size={20} />
               </a>
+              <a 
+                href="https://www.linkedin.com/in/milarecruiter/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white transition-colors hover:bg-blue-700"
+              >
+                <Linkedin size={20} />
+              </a>
             </div>
           </div>
           
