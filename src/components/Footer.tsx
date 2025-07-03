@@ -1,3 +1,4 @@
+
 import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -65,15 +66,14 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white pt-16 pb-8 w-full relative">
-      <div className="absolute inset-0 bg-white/10"></div>
-      <div className="relative w-full px-4 sm:px-6 lg:px-8">
+    <footer id="contact" className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white pt-16 pb-8 w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-white/20">
           <div className="lg:col-span-2">
             <img 
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
               alt="WRLDS Technologies Logo" 
-              className="h-10 w-auto mb-6 invert"
+              className="h-10 w-auto mb-6 filter brightness-0 invert"
             />
             <p className="text-white/90 mb-6">
               WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
@@ -89,10 +89,10 @@ const Footer = () => {
                   href="https://www.linkedin.com/in/milarecruiter/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-lg border-2 border-white/20"
+                  className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-lg"
                   title="Mila's LinkedIn Profile"
                 >
-                  <Linkedin size={24} className="text-white fill-white" />
+                  <Linkedin size={24} className="text-white" />
                 </a>
               </div>
             </div>
@@ -114,7 +114,7 @@ const Footer = () => {
                 <input 
                   type="email" 
                   placeholder="Your email" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-white/30 text-white placeholder-white/60 backdrop-blur-sm"
+                  className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/70 backdrop-blur-sm"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isSubmitting}
@@ -122,7 +122,7 @@ const Footer = () => {
               </div>
               <button 
                 type="submit" 
-                className="w-full px-4 py-2 bg-white/20 text-white rounded-md hover:bg-white/30 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
+                className="w-full px-4 py-2 bg-white/30 text-white rounded-md hover:bg-white/40 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Subscribing..." : (
