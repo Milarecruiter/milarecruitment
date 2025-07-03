@@ -1,4 +1,5 @@
-import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Linkedin, Phone } from "lucide-react";
+
+import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Linkedin, Phone, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -87,10 +88,12 @@ const RecruiterLanding = () => {
               />
               <AvatarFallback className="text-4xl font-semibold bg-purple-600 text-white">MS</AvatarFallback>
             </Avatar>
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-4">
-              <h2 className="text-2xl font-semibold text-white">Mila Svirshkova</h2>
-              <span className="text-2xl font-semibold text-purple-200">•</span>
-              <h3 className="text-2xl font-semibold text-purple-200">Senior Technical Recruiter</h3>
+            <div className="flex flex-col items-center gap-4 mb-4">
+              <h2 className="text-2xl font-semibold text-white">Mila Svirshkova • Senior Technical Recruiter</h2>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <span className="text-sm font-medium text-white">Top Rated on Upwork</span>
+              </div>
             </div>
           </motion.div>
           
