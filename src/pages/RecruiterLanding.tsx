@@ -3,6 +3,7 @@ import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSqu
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -78,8 +79,17 @@ const RecruiterLanding = () => {
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-6xl mx-auto text-center">
-          <motion.div variants={itemVariants}>
-            <Badge className="mb-6 bg-white/10 text-white border-white/20 hover:bg-white/20">
+          <motion.div variants={itemVariants} className="flex flex-col items-center mb-8">
+            <Avatar className="w-32 h-32 mb-6 ring-4 ring-white/20">
+              <AvatarImage 
+                src="/lovable-uploads/6d20bc8c-7496-4289-a5a4-265289c77fbb.png" 
+                alt="Mila Svirshkova - Technical Recruiter" 
+                className="object-cover"
+              />
+              <AvatarFallback className="text-4xl font-semibold bg-blue-600 text-white">MS</AvatarFallback>
+            </Avatar>
+            <h2 className="text-2xl font-semibold text-blue-200 mb-2">Mila Svirshkova</h2>
+            <Badge className="mb-4 bg-white/10 text-white border-white/20 hover:bg-white/20">
               Senior Technical Recruiter
             </Badge>
           </motion.div>
