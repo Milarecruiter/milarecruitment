@@ -1,4 +1,3 @@
-
 import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Linkedin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -72,7 +71,7 @@ const RecruiterLanding = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <motion.section 
-        className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20 px-4 sm:px-6 lg:px-8"
+        className="relative bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white py-20 px-4 sm:px-6 lg:px-8"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -86,12 +85,13 @@ const RecruiterLanding = () => {
                 alt="Mila Svirshkova - Technical Recruiter" 
                 className="object-cover"
               />
-              <AvatarFallback className="text-4xl font-semibold bg-blue-600 text-white">MS</AvatarFallback>
+              <AvatarFallback className="text-4xl font-semibold bg-purple-600 text-white">MS</AvatarFallback>
             </Avatar>
-            <h2 className="text-2xl font-semibold text-blue-200 mb-2">Mila Svirshkova</h2>
-            <Badge className="mb-4 bg-white/10 text-white border-white/20 hover:bg-white/20">
-              Senior Technical Recruiter
-            </Badge>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-4">
+              <h2 className="text-2xl font-semibold text-white">Mila Svirshkova</h2>
+              <span className="text-2xl font-semibold text-purple-200">•</span>
+              <h3 className="text-2xl font-semibold text-purple-200">Senior Technical Recruiter</h3>
+            </div>
           </motion.div>
           
           <motion.h1 
@@ -99,11 +99,11 @@ const RecruiterLanding = () => {
             variants={itemVariants}
           >
             Hire the Best Tech Talent
-            <span className="block text-blue-200">Worldwide</span>
+            <span className="block text-purple-200">Worldwide</span>
           </motion.h1>
           
           <motion.p 
-            className="text-xl sm:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto"
+            className="text-xl sm:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto"
             variants={itemVariants}
           >
             6+ years of international full-cycle recruiting across EMEA, LATAM, and US. 
@@ -116,7 +116,7 @@ const RecruiterLanding = () => {
           >
             <Button 
               size="lg" 
-              className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-4 text-lg font-semibold"
+              className="bg-white text-purple-900 hover:bg-purple-50 px-8 py-4 text-lg font-semibold"
               onClick={scrollToContact}
             >
               Start Hiring Now
@@ -150,7 +150,7 @@ const RecruiterLanding = () => {
                 className="text-center"
                 variants={itemVariants}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-600 rounded-full mb-4">
                   {stat.icon}
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
@@ -189,7 +189,7 @@ const RecruiterLanding = () => {
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                   <CardContent className="p-8">
                     <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 p-3 bg-blue-100 text-blue-600 rounded-lg">
+                      <div className="flex-shrink-0 p-3 bg-purple-100 text-purple-600 rounded-lg">
                         {service.icon}
                       </div>
                       <div>
@@ -265,7 +265,7 @@ const RecruiterLanding = () => {
           >
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                <Globe className="w-6 h-6 mr-3 text-blue-600" />
+                <Globe className="w-6 h-6 mr-3 text-purple-600" />
                 Geographic Reach
               </h3>
               <ul className="space-y-3 text-gray-700">
@@ -286,7 +286,7 @@ const RecruiterLanding = () => {
 
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                <Target className="w-6 h-6 mr-3 text-blue-600" />
+                <Target className="w-6 h-6 mr-3 text-purple-600" />
                 Sourcing Methods
               </h3>
               <ul className="space-y-3 text-gray-700">
@@ -313,7 +313,7 @@ const RecruiterLanding = () => {
       </section>
 
       {/* Languages Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-blue-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial="hidden"
@@ -323,9 +323,9 @@ const RecruiterLanding = () => {
           >
             <h3 className="text-2xl font-semibold text-gray-900 mb-8">Language Proficiency</h3>
             <div className="flex flex-wrap justify-center gap-6">
-              <Badge className="px-4 py-2 bg-blue-600 text-white">Russian/Ukrainian - Native</Badge>
-              <Badge className="px-4 py-2 bg-blue-600 text-white">English - C1</Badge>
-              <Badge className="px-4 py-2 bg-blue-600 text-white">Polish - C1</Badge>
+              <Badge className="px-4 py-2 bg-purple-600 text-white">Russian/Ukrainian - Native</Badge>
+              <Badge className="px-4 py-2 bg-purple-600 text-white">English - C1</Badge>
+              <Badge className="px-4 py-2 bg-purple-600 text-white">Polish - C1</Badge>
             </div>
           </motion.div>
         </div>
@@ -354,33 +354,17 @@ const RecruiterLanding = () => {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+              className="flex justify-center"
               variants={itemVariants}
             >
               <Button 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg font-semibold"
+                className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-semibold"
+                onClick={scrollToContact}
               >
                 <MessageSquare className="mr-2 w-5 h-5" />
                 Schedule a Call
               </Button>
-              
-              <div className="flex gap-4">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-gray-600 text-white hover:bg-gray-800"
-                >
-                  <Mail className="w-5 h-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-gray-600 text-white hover:bg-gray-800"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Button>
-              </div>
             </motion.div>
           </motion.div>
         </div>
