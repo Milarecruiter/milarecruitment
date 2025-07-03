@@ -1,4 +1,3 @@
-
 import { ArrowRight, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -66,8 +65,8 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white pt-16 pb-8 w-full relative">
-      <div className="absolute inset-0 bg-black/20"></div>
+    <footer id="contact" className="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white pt-16 pb-8 w-full relative">
+      <div className="absolute inset-0 bg-white/10"></div>
       <div className="relative w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-white/20">
           <div className="lg:col-span-2">
