@@ -67,29 +67,25 @@ const Footer = () => {
   return (
     <footer 
       id="contact" 
-      className="text-white pt-16 pb-8 w-full"
-      style={{
-        background: 'linear-gradient(to right, rgb(96 165 250), rgb(168 85 247), rgb(244 114 182))',
-        minHeight: 'auto'
-      }}
+      className="bg-white text-gray-900 pt-16 pb-8 w-full"
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-white/20">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-200">
           <div className="lg:col-span-2">
             <img 
               src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
               alt="WRLDS Technologies Logo" 
-              className="h-10 w-auto mb-6 filter brightness-0 invert"
+              className="h-10 w-auto mb-6"
             />
-            <p className="text-white/90 mb-6">
+            <p className="text-gray-700 mb-6">
               WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
             </p>
-            <p className="text-white/90 mb-6">
+            <p className="text-gray-700 mb-6">
               Hornsgatan 110<br />
               117 26, Stockholm Sweden
             </p>
             <div className="flex flex-col space-y-3">
-              <span className="text-white/80 text-sm">Follow Mila:</span>
+              <span className="text-gray-600 text-sm">Follow Mila:</span>
               <div className="flex items-center">
                 <a 
                   href="https://www.linkedin.com/in/milarecruiter/" 
@@ -105,22 +101,22 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
+            <h3 className="text-lg font-bold mb-4 text-gray-900">Company</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-white/80 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/careers" className="text-white/80 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/privacy-policy" className="text-white/80 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About Us</Link></li>
+              <li><Link to="/careers" className="text-gray-600 hover:text-gray-900 transition-colors">Careers</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-600 hover:text-gray-900 transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Get in Touch</h3>
+            <h3 className="text-lg font-bold mb-4 text-gray-900">Get in Touch</h3>
             <form className="space-y-4" onSubmit={handleSubscribe}>
               <div>
                 <input 
                   type="email" 
                   placeholder="Your email" 
-                  className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/70 backdrop-blur-sm"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isSubmitting}
@@ -128,7 +124,7 @@ const Footer = () => {
               </div>
               <button 
                 type="submit" 
-                className="w-full px-4 py-2 bg-white/30 text-white rounded-md hover:bg-white/40 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
+                className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Subscribing..." : (
@@ -143,11 +139,11 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/80 text-sm mb-4 md:mb-0">
+          <p className="text-gray-600 text-sm mb-4 md:mb-0">
             © {new Date().getFullYear()} WRLDS Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm text-white/80 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>
