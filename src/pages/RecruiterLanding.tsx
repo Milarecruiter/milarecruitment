@@ -334,7 +334,7 @@ const RecruiterLanding = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-400 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial="hidden"
