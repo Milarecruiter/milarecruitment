@@ -1,4 +1,4 @@
-import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Phone, Star } from "lucide-react";
+import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Phone, Star, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -356,7 +356,7 @@ const RecruiterLanding = () => {
             </motion.p>
             
             <motion.div 
-              className="flex justify-center gap-4"
+              className="flex justify-center"
               variants={itemVariants}
             >
               <Button 
@@ -367,19 +367,21 @@ const RecruiterLanding = () => {
                 <MessageSquare className="mr-2 w-5 h-5" />
                 Schedule a Call
               </Button>
-              <a 
-                href="https://www.linkedin.com/in/milarecruiter/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold text-lg transition-colors"
-              >
-                <Users className="mr-2 w-5 h-5" />
-                LinkedIn Profile
-              </a>
             </motion.div>
           </motion.div>
         </div>
       </section>
+
+      {/* LinkedIn Icon - Bottom Right */}
+      <a 
+        href="https://www.linkedin.com/in/milarecruiter/" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center w-12 h-12 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-lg"
+        title="Connect on LinkedIn"
+      >
+        <Linkedin size={24} />
+      </a>
     </div>
   );
 };
