@@ -359,14 +359,15 @@ const RecruiterLanding = () => {
               className="flex justify-center"
               variants={itemVariants}
             >
-              <Button 
-                size="lg" 
-                className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-semibold"
-                onClick={scrollToContact}
+              <a 
+                href="https://calendly.com/top-mila1986-1/interview"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-md font-semibold text-lg transition-colors"
               >
                 <MessageSquare className="mr-2 w-5 h-5" />
                 Schedule a Call
-              </Button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
