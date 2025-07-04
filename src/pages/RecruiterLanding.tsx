@@ -356,7 +356,7 @@ const RecruiterLanding = () => {
             </motion.p>
             
             <motion.div 
-              className="flex justify-center"
+              className="flex justify-center gap-4"
               variants={itemVariants}
             >
               <Button 
@@ -367,6 +367,15 @@ const RecruiterLanding = () => {
                 <MessageSquare className="mr-2 w-5 h-5" />
                 Schedule a Call
               </Button>
+              <a 
+                href="https://www.linkedin.com/in/milarecruiter/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold text-lg transition-colors"
+              >
+                <Users className="mr-2 w-5 h-5" />
+                LinkedIn Profile
+              </a>
             </motion.div>
           </motion.div>
         </div>
