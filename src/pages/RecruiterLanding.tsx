@@ -1,4 +1,4 @@
-import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Phone, Star, Linkedin } from "lucide-react";
+import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Phone, Star, Linkedin, MapPin, DollarSign, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -57,6 +57,49 @@ const RecruiterLanding = () => {
       icon: <Award className="w-8 h-8" />,
       title: "High Success Rates",
       description: "90% offer acceptance rate with proven track record"
+    }
+  ];
+
+  const openJobs = [
+    {
+      id: 1,
+      title: "Senior Full Stack Engineer",
+      company: "FinTech Startup",
+      location: "Remote (EMEA)",
+      salary: "€80K - €120K",
+      type: "Full-time",
+      skills: ["React", "Node.js", "PostgreSQL", "AWS"],
+      description: "Join a fast-growing fintech company building the future of digital payments."
+    },
+    {
+      id: 2,
+      title: "Mobile App Developer",
+      company: "HealthTech Company",
+      location: "Berlin, Germany",
+      salary: "$90K - $130K",
+      type: "Full-time",
+      skills: ["React Native", "iOS", "Android", "Firebase"],
+      description: "Help build innovative healthcare solutions that impact millions of users."
+    },
+    {
+      id: 3,
+      title: "ML Engineer",
+      company: "AI Startup",
+      location: "Remote (US/EU)",
+      salary: "$120K - $160K",
+      type: "Full-time",
+      skills: ["Python", "TensorFlow", "PyTorch", "Kubernetes"],
+      description: "Work on cutting-edge AI models and machine learning infrastructure."
+    },
+    {
+      id: 4,
+      title: "DevOps Engineer",
+      company: "Gaming Studio",
+      location: "Remote (LATAM)",
+      salary: "$70K - $100K",
+      type: "Full-time",
+      skills: ["Docker", "Kubernetes", "AWS", "Terraform"],
+      description: "Scale infrastructure for millions of players worldwide."
     }
   ];
 
@@ -207,6 +250,102 @@ const RecruiterLanding = () => {
                 </Card>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Open Jobs Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Current Open Positions</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover exciting opportunities with innovative startups and scale-ups
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            {openJobs.map((job) => (
+              <motion.div key={job.id} variants={itemVariants}>
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                          {job.title}
+                        </h3>
+                        <div className="flex items-center text-gray-600 mb-2">
+                          <Building2 className="w-4 h-4 mr-2" />
+                          {job.company}
+                        </div>
+                        <div className="flex items-center text-gray-600 mb-2">
+                          <MapPin className="w-4 h-4 mr-2" />
+                          {job.location}
+                        </div>
+                        <div className="flex items-center text-gray-600 mb-4">
+                          <DollarSign className="w-4 h-4 mr-2" />
+                          {job.salary}
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="ml-4">
+                        {job.type}
+                      </Badge>
+                    </div>
+                    
+                    <p className="text-gray-600 mb-4">
+                      {job.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {job.skills.map((skill, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <Button 
+                      className="w-full bg-purple-600 hover:bg-purple-700"
+                      onClick={scrollToContact}
+                    >
+                      Apply Now
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            className="text-center mt-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+          >
+            <p className="text-gray-600 mb-6">
+              Don't see the perfect role? I'm always looking for exceptional talent.
+            </p>
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={scrollToContact}
+            >
+              Submit Your Profile
+            </Button>
           </motion.div>
         </div>
       </section>
