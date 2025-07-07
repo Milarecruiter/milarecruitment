@@ -1,3 +1,4 @@
+
 import { ArrowRight, Users, Clock, Award, Globe, Target, CheckCircle, MessageSquare, Mail, Phone, Star, Linkedin, MapPin, DollarSign, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -81,6 +82,10 @@ const RecruiterLanding = () => {
   };
 
   const handleApplyNow = (jobId: number) => {
+    window.location.href = '/apply';
+  };
+
+  const handleSubmitProfile = () => {
     window.location.href = '/apply';
   };
 
@@ -318,7 +323,7 @@ const RecruiterLanding = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={scrollToContact}
+              onClick={handleSubmitProfile}
             >
               Submit Your Profile
             </Button>
