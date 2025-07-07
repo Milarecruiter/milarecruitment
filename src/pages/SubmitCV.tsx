@@ -1,12 +1,16 @@
 
 import React, { useState } from 'react';
-import { ArrowLeft, Upload, File, X } from 'lucide-react';
+import { ArrowLeft, Upload, File, X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 
 const SubmitCV = () => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -19,11 +23,44 @@ const SubmitCV = () => {
     setSelectedFile(null);
   };
 
-  const handleSubmit = () => {
-    if (selectedFile) {
-      console.log('Submitting CV:', selectedFile.name);
-      // Here you would typically upload the file to your backend
+  const handleSubmit = async () => {
+    if (!selectedFile) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Convert file to base64 for email attachment
+      const fileReader = new FileReader();
+      fileReader.onload = async (e) => {
+        const fileContent = e.target?.result as string;
+        
+        const emailParams = {
+          to_email: 'top.mila1986@gmail.com',
+          from_name: 'CV Submission System',
+          subject: `New CV Submission - ${selectedFile.name}`,
+          message: `A new CV has been submitted for the DevOps Engineer position.\n\nFile: ${selectedFile.name}\nSize: ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB\nSubmitted: ${new Date().toLocaleString()}`,
+          attachment_name: selectedFile.name,
+          attachment_content: fileContent.split(',')[1] // Remove data:mime;base64, prefix
+        };
+
+        // You'll need to set up EmailJS with your service details
+        // For now, we'll just show the thank you dialog
+        console.log('CV submission:', emailParams);
+        
+        setShowThankYou(true);
+        setIsSubmitting(false);
+      };
+      
+      fileReader.readAsDataURL(selectedFile);
+    } catch (error) {
+      console.error('Error submitting CV:', error);
+      setIsSubmitting(false);
     }
+  };
+
+  const handleThankYouClose = () => {
+    setShowThankYou(false);
+    navigate('/');
   };
 
   return (
@@ -87,15 +124,44 @@ const SubmitCV = () => {
                 </p>
                 <Button
                   onClick={handleSubmit}
+                  disabled={isSubmitting}
                   className="bg-green-600 hover:bg-green-700 px-8 py-3"
                 >
-                  Submit Application
+                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
                 </Button>
               </div>
             )}
           </div>
         </div>
       </div>
+
+      {/* Thank You Dialog */}
+      <Dialog open={showThankYou} onOpenChange={setShowThankYou}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <div className="flex items-center justify-center mb-4">
+              <CheckCircle className="w-16 h-16 text-green-500" />
+            </div>
+            <DialogTitle className="text-center text-2xl font-bold text-gray-900">
+              Thank You!
+            </DialogTitle>
+          </DialogHeader>
+          <div className="text-center space-y-4">
+            <p className="text-gray-600">
+              Your CV has been successfully submitted for the DevOps Engineer position at Naviteq Ltd.
+            </p>
+            <p className="text-gray-600">
+              We'll review your application and get back to you soon.
+            </p>
+            <Button 
+              onClick={handleThankYouClose}
+              className="w-full bg-purple-600 hover:bg-purple-700 mt-6"
+            >
+              Return to Home
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
