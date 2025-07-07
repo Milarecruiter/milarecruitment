@@ -63,43 +63,13 @@ const RecruiterLanding = () => {
   const openJobs = [
     {
       id: 1,
-      title: "Senior Full Stack Engineer",
-      company: "FinTech Startup",
-      location: "Remote (EMEA)",
-      salary: "€80K - €120K",
-      type: "Full-time",
-      skills: ["React", "Node.js", "PostgreSQL", "AWS"],
-      description: "Join a fast-growing fintech company building the future of digital payments."
-    },
-    {
-      id: 2,
-      title: "Mobile App Developer",
-      company: "HealthTech Company",
-      location: "Berlin, Germany",
-      salary: "$90K - $130K",
-      type: "Full-time",
-      skills: ["React Native", "iOS", "Android", "Firebase"],
-      description: "Help build innovative healthcare solutions that impact millions of users."
-    },
-    {
-      id: 3,
-      title: "ML Engineer",
-      company: "AI Startup",
-      location: "Remote (US/EU)",
-      salary: "$120K - $160K",
-      type: "Full-time",
-      skills: ["Python", "TensorFlow", "PyTorch", "Kubernetes"],
-      description: "Work on cutting-edge AI models and machine learning infrastructure."
-    },
-    {
-      id: 4,
       title: "DevOps Engineer",
-      company: "DevOps as a Service",
+      company: "Naviteq Ltd.",
       location: "Remote (Israel)",
       salary: null,
       type: "Full-time",
       skills: ["Docker", "Kubernetes", "AWS", "Terraform"],
-      description: "Scale infrastructure for millions of players worldwide."
+      description: "Join a leading Israeli company in DevOps Service and Cloud Solutions."
     }
   ];
 
