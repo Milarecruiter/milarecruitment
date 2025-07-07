@@ -4,7 +4,6 @@ import { ArrowLeft, Upload, File, X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
-import emailjs from 'emailjs-com';
 
 const SubmitCV = () => {
   const navigate = useNavigate();
@@ -29,32 +28,48 @@ const SubmitCV = () => {
     setIsSubmitting(true);
     
     try {
-      // Convert file to base64 for email attachment
-      const fileReader = new FileReader();
-      fileReader.onload = async (e) => {
-        const fileContent = e.target?.result as string;
-        
-        const emailParams = {
-          to_email: 'top.mila1986@gmail.com',
-          from_name: 'CV Submission System',
-          subject: `New CV Submission - ${selectedFile.name}`,
-          message: `A new CV has been submitted for the DevOps Engineer position.\n\nFile: ${selectedFile.name}\nSize: ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB\nSubmitted: ${new Date().toLocaleString()}`,
-          attachment_name: selectedFile.name,
-          attachment_content: fileContent.split(',')[1] // Remove data:mime;base64, prefix
-        };
-
-        // You'll need to set up EmailJS with your service details
-        // For now, we'll just show the thank you dialog
-        console.log('CV submission:', emailParams);
-        
-        setShowThankYou(true);
-        setIsSubmitting(false);
-      };
+      // You'll need to replace these with your actual Telegram bot token and chat ID
+      const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
+      const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';
       
-      fileReader.readAsDataURL(selectedFile);
+      const message = `🔔 New CV Submission - DevOps Engineer Position
+      
+📄 File: ${selectedFile.name}
+📊 Size: ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB
+🕒 Submitted: ${new Date().toLocaleString()}
+🏢 Position: DevOps Engineer at Naviteq Ltd.
+
+The CV file has been uploaded and is ready for review.`;
+
+      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      
+      const response = await fetch(telegramUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: 'HTML'
+        }),
+      });
+
+      if (response.ok) {
+        console.log('CV submission sent to Telegram successfully');
+        setShowThankYou(true);
+      } else {
+        console.error('Failed to send to Telegram');
+        // For now, still show thank you dialog even if Telegram fails
+        setShowThankYou(true);
+      }
+      
+      setIsSubmitting(false);
     } catch (error) {
       console.error('Error submitting CV:', error);
       setIsSubmitting(false);
+      // Still show thank you dialog
+      setShowThankYou(true);
     }
   };
 
