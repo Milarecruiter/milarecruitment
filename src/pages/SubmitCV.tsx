@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowLeft, Upload, File, X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -29,8 +28,7 @@ const SubmitCV = () => {
     
     try {
       const TELEGRAM_BOT_TOKEN = '7648238102:AAGkoe2L2jn4DQnmNTWSj2yWiWN2Efa1-xo';
-      // Changed to numeric chat ID - you need to get your actual chat ID
-      const TELEGRAM_CHAT_ID = '123456789'; // Replace with your actual numeric chat ID
+      const TELEGRAM_CHAT_ID = '343446784'; // Your actual Chat ID
       
       const message = `🔔 New CV Submission - DevOps Engineer Position
       
