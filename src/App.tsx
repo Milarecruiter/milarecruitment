@@ -20,6 +20,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
 import Apply from "./pages/Apply";
+import SubmitCV from "./pages/SubmitCV";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostDetail />} />
             <Route path="/apply" element={<Apply />} />
+            <Route path="/submit-cv" element={<SubmitCV />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
