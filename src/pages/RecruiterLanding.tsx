@@ -94,9 +94,9 @@ const RecruiterLanding = () => {
     {
       id: 4,
       title: "DevOps Engineer",
-      company: "Gaming Studio",
-      location: "Remote (LATAM)",
-      salary: "$70K - $100K",
+      company: "DevOps as a Service",
+      location: "Remote (Israel)",
+      salary: null,
       type: "Full-time",
       skills: ["Docker", "Kubernetes", "AWS", "Terraform"],
       description: "Scale infrastructure for millions of players worldwide."
@@ -108,6 +108,10 @@ const RecruiterLanding = () => {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleApplyNow = (jobId: number) => {
+    window.location.href = '/apply';
   };
 
   return (
@@ -294,10 +298,12 @@ const RecruiterLanding = () => {
                           <MapPin className="w-4 h-4 mr-2" />
                           {job.location}
                         </div>
-                        <div className="flex items-center text-gray-600 mb-4">
-                          <DollarSign className="w-4 h-4 mr-2" />
-                          {job.salary}
-                        </div>
+                        {job.salary && (
+                          <div className="flex items-center text-gray-600 mb-4">
+                            <DollarSign className="w-4 h-4 mr-2" />
+                            {job.salary}
+                          </div>
+                        )}
                       </div>
                       <Badge variant="secondary" className="ml-4">
                         {job.type}
@@ -318,7 +324,7 @@ const RecruiterLanding = () => {
                     
                     <Button 
                       className="w-full bg-purple-600 hover:bg-purple-700"
-                      onClick={scrollToContact}
+                      onClick={() => handleApplyNow(job.id)}
                     >
                       Apply Now
                       <ArrowRight className="ml-2 w-4 h-4" />
