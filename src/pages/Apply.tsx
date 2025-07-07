@@ -79,7 +79,7 @@ const Apply = () => {
               className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg"
               onClick={() => navigate('/submit-cv')}
             >
-              Happy Now
+              Apply Now
             </Button>
           </div>
         </div>
