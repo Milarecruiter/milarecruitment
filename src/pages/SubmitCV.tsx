@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { ArrowLeft, Upload, File, X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
 
 const SubmitCV = () => {
@@ -28,7 +29,8 @@ const SubmitCV = () => {
     
     try {
       const TELEGRAM_BOT_TOKEN = '7648238102:AAGkoe2L2jn4DQnmNTWSj2yWiWN2Efa1-xo';
-      const TELEGRAM_CHAT_ID = '@milarecruiterbot';
+      // Changed to numeric chat ID - you need to get your actual chat ID
+      const TELEGRAM_CHAT_ID = '123456789'; // Replace with your actual numeric chat ID
       
       const message = `🔔 New CV Submission - DevOps Engineer Position
       
@@ -40,6 +42,8 @@ const SubmitCV = () => {
 The CV file has been uploaded and is ready for review.`;
 
       const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      
+      console.log('Sending to Telegram with chat ID:', TELEGRAM_CHAT_ID);
       
       const response = await fetch(telegramUrl, {
         method: 'POST',
@@ -53,21 +57,22 @@ The CV file has been uploaded and is ready for review.`;
         }),
       });
 
+      const responseData = await response.json();
+      console.log('Telegram API response:', responseData);
+
       if (response.ok) {
         console.log('CV submission sent to Telegram successfully');
         setShowThankYou(true);
       } else {
-        console.error('Failed to send to Telegram');
-        // For now, still show thank you dialog even if Telegram fails
-        setShowThankYou(true);
+        console.error('Failed to send to Telegram:', responseData);
+        alert(`Failed to send notification: ${responseData.description || 'Unknown error'}`);
       }
       
       setIsSubmitting(false);
     } catch (error) {
       console.error('Error submitting CV:', error);
       setIsSubmitting(false);
-      // Still show thank you dialog
-      setShowThankYou(true);
+      alert('Error submitting CV. Please try again.');
     }
   };
 
@@ -158,6 +163,9 @@ The CV file has been uploaded and is ready for review.`;
             <DialogTitle className="text-center text-2xl font-bold text-gray-900">
               Thank You!
             </DialogTitle>
+            <DialogDescription className="text-center text-gray-600">
+              Your application has been submitted successfully.
+            </DialogDescription>
           </DialogHeader>
           <div className="text-center space-y-4">
             <p className="text-gray-600">
