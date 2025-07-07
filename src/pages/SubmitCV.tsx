@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { ArrowLeft, Upload, File, X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -29,42 +30,42 @@ const SubmitCV = () => {
     
     try {
       const TELEGRAM_BOT_TOKEN = '7648238102:AAGkoe2L2jn4DQnmNTWSj2yWiWN2Efa1-xo';
-      const TELEGRAM_CHAT_ID = '249313239'; // Updated Chat ID
+      const TELEGRAM_CHAT_ID = '249313239';
       
-      const message = `🔔 New CV Submission - DevOps Engineer Position
+      // Create FormData to send the file
+      const formData = new FormData();
+      formData.append('chat_id', TELEGRAM_CHAT_ID);
+      formData.append('document', selectedFile);
       
+      const caption = `🔔 New CV Submission - DevOps Engineer Position
+
 📄 File: ${selectedFile.name}
 📊 Size: ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB
 🕒 Submitted: ${new Date().toLocaleString()}
 🏢 Position: DevOps Engineer at Naviteq Ltd.
 
-The CV file has been uploaded and is ready for review.`;
-
-      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+CV file attached for review.`;
       
-      console.log('Sending to Telegram with chat ID:', TELEGRAM_CHAT_ID);
+      formData.append('caption', caption);
+      
+      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`;
+      
+      console.log('Sending CV file to Telegram...');
       
       const response = await fetch(telegramUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: message,
-          parse_mode: 'HTML'
-        }),
+        body: formData, // Don't set Content-Type header, let the browser set it for multipart/form-data
       });
 
       const responseData = await response.json();
       console.log('Telegram API response:', responseData);
 
       if (response.ok) {
-        console.log('CV submission sent to Telegram successfully');
+        console.log('CV file sent to Telegram successfully');
         setShowThankYou(true);
       } else {
-        console.error('Failed to send to Telegram:', responseData);
-        alert(`Failed to send notification: ${responseData.description || 'Unknown error'}`);
+        console.error('Failed to send CV to Telegram:', responseData);
+        alert(`Failed to send CV: ${responseData.description || 'Unknown error'}`);
       }
       
       setIsSubmitting(false);
@@ -187,3 +188,4 @@ The CV file has been uploaded and is ready for review.`;
 };
 
 export default SubmitCV;
+
