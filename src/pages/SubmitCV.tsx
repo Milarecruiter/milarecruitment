@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowLeft, Upload, File, X, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -28,9 +27,8 @@ const SubmitCV = () => {
     setIsSubmitting(true);
     
     try {
-      // You'll need to replace these with your actual Telegram bot token and chat ID
-      const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
-      const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';
+      const TELEGRAM_BOT_TOKEN = '7648238102:AAGkoe2L2jn4DQnmNTWSj2yWiWN2Efa1-xo';
+      const TELEGRAM_CHAT_ID = '@milarecruiterbot';
       
       const message = `🔔 New CV Submission - DevOps Engineer Position
       
